@@ -2,6 +2,27 @@
 
 Prism is an intelligent AI-powered voice home assistant built with Python Flask, featuring real-time voice interaction, natural language processing, and a comprehensive set of home assistant capabilities.
 
+---
+
+## 🛠️ Tech Stack (2024 Update)
+- **Python 3.8+**
+- **Flask** (API server, web backend)
+- **Flask-SocketIO** (real-time WebSocket support)
+- **Google Cloud Speech-to-Text** (voice recognition)
+- **OpenAI GPT-4o-mini** (NLP, chat, and TTS)
+- **OpenAI TTS** (text-to-speech)
+- **NewsAPI** (real news headlines, optional)
+- **OpenWeather API** (real weather data, optional)
+- **dotenv** (for environment variable management)
+- **Requests** (HTTP requests to APIs)
+- **Dataclasses** (for structured data, e.g., news items)
+- **Jinja2** (Flask templating)
+- **HTML5/JS/CSS** (frontend, audio capture, and playback)
+- **Docker** (optional, for containerized deployment)
+- **Comprehensive .gitignore** (Python, IDE, OS, and API secrets)
+
+---
+
 ## 🌟 Features
 
 ### Core Voice Assistant
@@ -52,6 +73,15 @@ Prism is an intelligent AI-powered voice home assistant built with Python Flask,
 - Simulated web search functionality
 - Information lookup
 - Voice commands: "Search for Python tutorials", "What is machine learning?"
+
+## 📰 News & Weather Mock Data
+- If API keys for NewsAPI or OpenWeather are missing, Prism will automatically use mock data for news and weather features. This allows for development and demoing without external dependencies.
+
+## 🗣️ TTS-Friendly News Headlines
+- News headlines are processed to be more natural for text-to-speech, including abbreviation expansion and source cleanup for a better voice experience.
+
+## 🗂️ Project Structure
+- For a detailed breakdown of the codebase, see [`PROJECT_STRUCTURE.md`](PROJECT_STRUCTURE.md).
 
 ## 🚀 Quick Start
 
@@ -163,46 +193,32 @@ Prism is an intelligent AI-powered voice home assistant built with Python Flask,
 
 ## 🛠️ Configuration
 
-### Optional API Keys
-For enhanced functionality, you can add these optional API keys:
-
-#### OpenWeather API
-- Get real weather data instead of mock data
-- Sign up at [OpenWeather](https://openweathermap.org/api)
-- Add to `.env`: `OPENWEATHER_API_KEY=your_key_here`
-
-#### News API
-- Get real news headlines instead of mock data
-- Sign up at [NewsAPI](https://newsapi.org/)
-- Add to `.env`: `NEWS_API_KEY=your_key_here`
-
 ### Environment Variables
-```env
-# Required
-OPENAI_API_KEY=your_openai_api_key
-GOOGLE_APPLICATION_CREDENTIALS=path/to/credentials.json
-
-# Optional
-OPENWEATHER_API_KEY=your_openweather_api_key
-NEWS_API_KEY=your_news_api_key
-SECRET_KEY=your_secret_key
-```
+- All API keys and credentials are managed via a `.env` file using `python-dotenv`.
+- See `.env_example.txt` for a template.
 
 ## 🏗️ Architecture
 
 ### Backend Components
 - **Flask**: Web framework and API server
-- **Socket.IO**: Real-time WebSocket communication
+- **Flask-SocketIO**: Real-time WebSocket communication
 - **Google Cloud Speech-to-Text**: Voice recognition
 - **OpenAI GPT-4o-mini**: Natural language processing
 - **OpenAI TTS**: Text-to-speech synthesis
 - **PrismFeatures**: Home assistant capabilities module
+- **dotenv**: Environment variable management
+- **Requests**: HTTP requests to APIs
+- **Dataclasses**: Structured data for features
 
 ### Frontend Components
 - **HTML5 Audio API**: Audio capture and playback
 - **Web Audio API**: Audio processing and conversion
 - **Socket.IO Client**: Real-time communication
 - **Responsive Design**: Mobile-friendly interface
+
+## 🐳 Docker & .gitignore
+- Dockerfile provided for easy containerized deployment.
+- `.gitignore` is comprehensive and covers Python, virtual environments, IDE files, OS files, logs, audio test files, and API secrets.
 
 ## 🔍 Troubleshooting
 
